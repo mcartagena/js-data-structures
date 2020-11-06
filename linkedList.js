@@ -55,13 +55,36 @@ LinkedList.prototype.search = function (searchValue) {
   return null;
 }
 
+// Exercise, create a new function indexOf, the objective of this function is
+// to return the index of a value enter as parameter.  Example:
+// if we have a linkedlist of 3 - 5 - 3 - 8 the function has to return position 0 and 2
+// for a value of 3.
+
+LinkedList.prototype.indexOf = function(valueToSearch){
+  var currentNode = this.head;
+  var currentIndex = 0;
+  var indexes = [];
+  
+  while(currentNode){
+    if(currentNode.value === valueToSearch){
+      indexes.push(currentIndex) ;
+    }
+    currentIndex++;
+    currentNode = currentNode.next;
+  }
+
+  return indexes;
+}
+
+
 var ll = new LinkedList();
 
-ll.addToHead(123);
-ll.addToHead(70);
-ll.addToHead('hello');
-ll.addToTail(19);
-ll.addToTail('world');
-ll.addToTail(20);
+ll.addToTail(1);
+ll.addToTail(5);
+ll.addToTail(3);
+ll.addToTail(5);
+ll.addToTail(8);
+ll.addToTail(7);
+ll.addToTail(5);
 
-console.log(ll.search(10));
+console.log(ll.indexOf(5));
